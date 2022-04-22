@@ -21,4 +21,12 @@ describe("Gilded Rose", function () {
     expect(items[0].sellIn).toBe(9);
     expect(items[0].quality).toBe(9);
   });
+
+  // Une fois que la date de péremption est passée, la qualité se dégrade deux fois plus rapidement.  
+  it("should decrement quality twice fast", function () {
+    const gildedRose = new Shop([new Item("foo", 0, 10)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].sellIn).toBe(-1);
+    expect(items[0].quality).toBe(8);
+  });
 });
