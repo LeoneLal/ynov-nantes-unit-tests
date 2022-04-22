@@ -31,3 +31,19 @@ describe('Create items', () => {
     //     // expect(typeof item.name).toBe("string")
     // });
 });
+
+describe('Delete items', () => {
+    it('should be deleted', async () => {
+        Item.deleteMany({});
+        const item = new Item({ name: 'Théo' });
+        const savedItem = await item.save();
+        const findOne = await Item.findOne({});
+        const deleteItem = await Item.deleteOne({ _id: findOne._id });
+        const findDeletedOne = await Item.findOne({ _id: findOne._id });
+        expect(findDeletedOne).toBeNull();
+    });
+    it("shouldn't be deleted if doesn't exist", async () => {
+    Item.deleteMany({});
+    expect(Item.deleteOne({ name: "Théoo" })).rejects.toThrow("The item doesn't exist");
+
+    });
