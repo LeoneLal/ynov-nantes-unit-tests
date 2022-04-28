@@ -30,10 +30,23 @@ describe("contains enough bombs", function () {
 describe("select case", function () {
   it("should return case", function () {
     const minesweeper = new Minesweeper([]);
-    let field = ("..*\n...\n...\n");
+    let field = "..*\n...\n...\n";
     let find = minesweeper.findInField(field, 1, 1);
     let findBomb = minesweeper.findInField(field, 1, 3);
     expect(find).toBe("OK");
     expect(findBomb).toBe("BOOM");
+  });
+});
+
+describe("coordinate boudaries", function () {
+  function testBoundaries() {
+    throw new Error("Coordinates out of bounds");
+  }
+  it("should throw on an error", function () {
+    const minesweeper = new Minesweeper([]);
+    const field = minesweeper.createField(4, 4);
+    expect(() => minesweeper.findInField(field, 5, 24)).toThrow(
+      Error("Coordinates out of bounds")
+    );
   });
 });
