@@ -5,7 +5,6 @@ class Minesweeper {
       field += ".".repeat(lines);
       field += "\n";
     }
-    console.log(field);
     return field;
   }
 
@@ -15,6 +14,21 @@ class Minesweeper {
     let standardSize = 16;
     let quantity = Math.round((size * ratio) / standardSize);
     return quantity;
+  }
+
+  addBombIntoField(field, bombsQuantity) {
+    for (let i = 0; i < bombsQuantity; i++) {
+      let randomNumber = Math.floor(Math.random() * field.length);
+      if (field[randomNumber] === ".") {
+        field =
+          field.substring(0, randomNumber) +
+          "*" +
+          field.substring(randomNumber + 1);
+      } else {
+        i--;
+      }
+    }
+    return field;
   }
 }
 module.exports = { Minesweeper };

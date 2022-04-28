@@ -15,3 +15,14 @@ describe("bombs quantity", function () {
     expect(bombsQuantity).toBe(4);
   });
 });
+
+describe("contains enough bombs", function () {
+  it("should return the expected number of bombs", function () {
+    const minesweeper = new Minesweeper([]);
+    let field = minesweeper.createField(6, 5);
+    field = minesweeper.addBombIntoField(field, 4);
+    const regex = /\*/gm;
+    var count = (field.match(regex) || []).length;
+    expect(count).toBe(4);
+  });
+});
