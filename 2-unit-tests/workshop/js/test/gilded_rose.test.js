@@ -9,11 +9,11 @@ describe("Names", function () {
     expect(items[0].quality).toBe(80);
   });
 
-  // it("should change twice faster", function() {
-  //   const gildedRose = new Shop([new Item("Conjured",30, 15)]);
-  //   const items = gildedRose.updateQuality();
-  //   expect(items[0].quality).toBe(13);
-  // })
+  it("should change twice faster", function() {
+    const gildedRose = new Shop([new Item("Conjured",30, 15)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(13);
+  })
 
   it("should get better", function () {
     const Backstage = new Shop([
@@ -45,7 +45,6 @@ describe("Names", function () {
 
     let items = Brie.updateQuality();
     expect(items[0].quality).toBe(21);
-
     items = Brie4.updateQuality();
     expect(items[0].quality).toBe(7);
   });
