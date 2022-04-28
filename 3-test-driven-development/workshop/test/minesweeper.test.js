@@ -23,6 +23,6 @@ describe("contains enough bombs", function () {
     field = minesweeper.addBombIntoField(field, 4);
     const regex = /\*/gm;
     var count = (field.match(regex) || []).length;
-    expect(count).toBe(4);
+    expect(count).toBe(minesweeper.bombsQuantity(6, 5));
   });
 });
