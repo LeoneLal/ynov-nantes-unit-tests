@@ -26,3 +26,14 @@ describe("contains enough bombs", function () {
     expect(count).toBe(minesweeper.bombsQuantity(6, 5));
   });
 });
+
+describe("select case", function () {
+  it("should return case", function () {
+    const minesweeper = new Minesweeper([]);
+    let field = ("..*\n...\n...\n");
+    let find = minesweeper.findInField(field, 1, 1);
+    let findBomb = minesweeper.findInField(field, 1, 3);
+    expect(find).toBe("OK");
+    expect(findBomb).toBe("BOOM");
+  });
+});
