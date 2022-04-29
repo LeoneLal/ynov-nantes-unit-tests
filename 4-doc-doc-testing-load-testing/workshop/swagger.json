@@ -1,0 +1,131 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "To-Do App API",
+    "description": "This is the To-Do App API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:5000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "ToDo",
+      "description": "API for todo in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/todo": {
+      "get": {
+        "tags": [
+          "ToDo"
+        ],
+        "summary": "Get all todos",
+        "description": "Get all todos",
+        "operationId": "getTodos",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of todos",
+            "examples": {
+              "application/json": [
+                {
+                  "done": true,
+                  "_id": "626bac3c59c59f6d08bf406a",
+                  "text": "Contact email",
+                  "__v": 0
+                },
+                {
+                  "done": true,
+                  "_id": "626bb17359c59f62b8bf406f",
+                  "text": "Sport",
+                  "__v": 0
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ToDo"
+        ],
+        "summary": "Create a new todo",
+        "produces": [
+          "application/json"
+        ],
+        "description": "Create a new todo",
+        "operationId": "createTodo",
+        "responses": {
+          "201": {
+            "description": "Created - Todo has been saved",
+            "examples": {
+              "application/json": {
+                "done": false,
+                "_id": "626bf8ad59c59f0d82bf40b3",
+                "text": "courir",
+                "__v": 0
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "ToDo"
+        ],
+        "summary": "Finish a todo",
+        "description": "Finish a todo",
+        "operationId": "finishTodo",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the todo",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Todo has been finished",
+            "examples": {
+              "application/json": {
+                "done": false,
+                "_id": "626bac3c59c59f6d08bf406a",
+                "text": "marcher",
+                "__v": 0
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          }
+        }
+      }
+    }
+  }
+}
