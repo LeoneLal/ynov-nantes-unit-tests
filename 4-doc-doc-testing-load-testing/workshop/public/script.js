@@ -60,3 +60,8 @@ function doneTODO(event) {
   })
   .then(() => window.location.reload());
 }
+
+module.exports = {
+  createTODO,
+  doneTODO
+}
