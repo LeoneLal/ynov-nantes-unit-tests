@@ -19,7 +19,7 @@
     "codeceptjs": "^3.3.0",
     "jest": "^28.0.3",
     "playwright": "^1.19.1",
-    "webdriverio": "^6.12.1",
+    "webdriverio": "^6.12.1"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
